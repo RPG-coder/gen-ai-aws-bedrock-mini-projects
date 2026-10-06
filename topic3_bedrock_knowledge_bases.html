@@ -7796,7 +7796,7 @@ a.anchor-link {
 <!-- End of mermaid configuration --></head>
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=b8cdd20b">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=c6186cb9">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7809,7 +7809,7 @@ a.anchor-link {
 <h2 id="Setup">Setup<a class="anchor-link" href="#Setup">¶</a></h2><p>Before executing the next cell, we need a <code>config.json</code> file that is populated with your aws account id and a s3 bucket name with which we create a bucket.</p>
 <div class="highlight"><pre><span></span><span class="p">{</span>
 <span class="w">    </span><span class="nt">"ACCOUNT_ID"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-aws-account-id"</span><span class="p">,</span>
-<span class="w">    </span><span class="nt">"BUCKET_NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-s3-bucket-name"</span><span class="p">,</span>
+<span class="w">    </span><span class="nt">"BUCKET_NAME"</span><span class="p">:</span><span class="w"> </span><span class="s2">"your-s3-bucket-name"</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -7917,19 +7917,19 @@ a.anchor-link {
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
 <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
-<pre>{'ResponseMetadata': {'RequestId': 'ZQ5QYTNCF1KSVTGS',
-  'HostId': 'HJ/CjsVE5f6zsBBLT520evZpMfOvubUe4dnX2KC1eGvcmK8TrvjAT0eI0vZM/p+mH+d55/45/NMJjk8OEV118BsophwM9wEF',
+<pre>{'ResponseMetadata': {'RequestId': 'K3C4G7PK9X8C4C5Y',
+  'HostId': 'QWvY00smETxPqDID8cvQCKdKQK14e2en9t47p/jAblxwJiQOq8uvxS77J0lCmoAbwrUEUMGG/wcPdupklomtoK/4luRGv2Vm',
   'HTTPStatusCode': 200,
-  'HTTPHeaders': {'x-amz-id-2': 'HJ/CjsVE5f6zsBBLT520evZpMfOvubUe4dnX2KC1eGvcmK8TrvjAT0eI0vZM/p+mH+d55/45/NMJjk8OEV118BsophwM9wEF',
-   'x-amz-request-id': 'ZQ5QYTNCF1KSVTGS',
-   'date': 'Mon, 05 Oct 2026 23:15:53 GMT',
-   'location': '/temp-bucket-f244f6b3',
-   'x-amz-bucket-arn': 'arn:aws:s3:::temp-bucket-f244f6b3',
+  'HTTPHeaders': {'x-amz-id-2': 'QWvY00smETxPqDID8cvQCKdKQK14e2en9t47p/jAblxwJiQOq8uvxS77J0lCmoAbwrUEUMGG/wcPdupklomtoK/4luRGv2Vm',
+   'x-amz-request-id': 'K3C4G7PK9X8C4C5Y',
+   'date': 'Tue, 06 Oct 2026 00:02:21 GMT',
+   'location': '/temp-bucket-bd64e895',
+   'x-amz-bucket-arn': 'arn:aws:s3:::temp-bucket-bd64e895',
    'content-length': '0',
    'server': 'AmazonS3'},
   'RetryAttempts': 0},
- 'Location': '/temp-bucket-f244f6b3',
- 'BucketArn': 'arn:aws:s3:::temp-bucket-f244f6b3'}</pre>
+ 'Location': '/temp-bucket-bd64e895',
+ 'BucketArn': 'arn:aws:s3:::temp-bucket-bd64e895'}</pre>
 </div>
 </div>
 </div>
@@ -8066,7 +8066,7 @@ Here we create it programmatically to understand the permissions required.</p>
     <span class="n">AssumeRolePolicyDocument</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">trust_policy</span><span class="p">),</span>
 <span class="p">)</span>
 <span class="n">role_arn</span> <span class="o">=</span> <span class="n">role_response</span><span class="p">[</span><span class="s1">'Role'</span><span class="p">][</span><span class="s1">'Arn'</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Role ARN: </span><span class="si">{</span><span class="n">role_arn</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Role ARN: </span><span class="si">{</span><span class="n">role_arn</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">ACCOUNT_ID</span><span class="p">,</span><span class="s1">'&lt;ACCOUNT_ID&gt;'</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># Permissions policy</span>
 <span class="n">permissions_policy</span> <span class="o">=</span> <span class="p">{</span>
@@ -8594,7 +8594,7 @@ How would you handle this gracefully?</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [21]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-python"><pre><span></span><span class="c1"># Clean up all resources created in this notebook</span>
@@ -8618,6 +8618,7 @@ How would you handle this gracefully?</p>
 <span class="c1"># 3. Delete the IAM role policy and role</span>
 <span class="n">iam_client</span><span class="o">.</span><span class="n">delete_role_policy</span><span class="p">(</span><span class="n">RoleName</span><span class="o">=</span><span class="n">role_name</span><span class="p">,</span> <span class="n">PolicyName</span><span class="o">=</span><span class="n">policy_name</span><span class="p">)</span>
 <span class="n">iam_client</span><span class="o">.</span><span class="n">delete_role</span><span class="p">(</span><span class="n">RoleName</span><span class="o">=</span><span class="n">role_name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Deleted ROLE POLICY &amp; ROLE: </span><span class="si">{</span><span class="n">knowledge_base_id</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
 
 <span class="c1"># 4. Delete S3 objects</span>
 <span class="k">for</span> <span class="n">filename</span><span class="p">,</span> <span class="n">content</span> <span class="ow">in</span> <span class="n">documents</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
@@ -8644,19 +8645,14 @@ How would you handle this gracefully?</p>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Deleting data source: QBO2RE80OU
-Deleting knowledge base: LSCTNJNDUY
-Deleted: company-policies/refund_policy.txt
-Deleted: company-policies/shipping_policy.txt
-Deleted: company-policies/support_policy.txt
-Cleanup complete.
+<pre>Cleanup complete.
 </pre>
 </div>
 </div>
 </div>
 </div>
 </div>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=42e1e380">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell" id="cell-id=6a35b43f">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
